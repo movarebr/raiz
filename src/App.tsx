@@ -8,6 +8,7 @@ import CasaPage from "./pages/CasaPage";
 import MetasPage from "./pages/MetasPage";
 import CorpoPage from "./pages/CorpoPage";
 import MenteEspiritoPage from "./pages/MenteEspiritoPage";
+import PrazeresPage from "./pages/PrazeresPage";
 
 function Protegido() {
   const { session, carregando } = useAuth();
@@ -38,6 +39,7 @@ export default function App() {
             <Route path="mente-espirito" element={<MenteEspiritoPage />} />
             <Route path="casa" element={<CasaPage />} />
             <Route path="financas-metas" element={<MetasPage />} />
+            <Route path="prazeres" element={<PrazeresPage />} />
             {/* salas ainda vazias, esperando a gente montar */}
             <Route path=":slug" element={<PilarPage />} />
           </Route>
