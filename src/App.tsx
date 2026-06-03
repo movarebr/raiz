@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import PilarPage from "./pages/PilarPage";
 import CasaPage from "./pages/CasaPage";
 import MetasPage from "./pages/MetasPage";
+import CorpoPage from "./pages/CorpoPage";
 
 function Protegido() {
   const { session, carregando } = useAuth();
@@ -32,6 +33,7 @@ export default function App() {
           <Route element={<Protegido />}>
             <Route index element={<Dashboard />} />
             {/* salas ja mobiliadas */}
+            <Route path="corpo" element={<CorpoPage />} />
             <Route path="casa" element={<CasaPage />} />
             <Route path="financas-metas" element={<MetasPage />} />
             {/* salas ainda vazias, esperando a gente montar */}

@@ -73,3 +73,24 @@ export const SEMENTE_METAS_PROFISSIONAIS: string[] = [
   "Ser uma boa chefe",
   "Ter as 3 vertentes ativas: Servico, Ensino e Produto",
 ];
+
+// SKINCARE: rotina de partida (voce ajusta com os seus produtos)
+export const SEMENTE_SKINCARE_MANHA: string[] = [
+  "Limpar o rosto",
+  "Hidratante",
+  "Protetor solar",
+];
+export const SEMENTE_SKINCARE_NOITE: string[] = [
+  "Limpar o rosto",
+  "Tratamento",
+  "Hidratante",
+];
+
+// ALIMENTACAO: habitos gentis pra equilibrar o doce (das nossas estrategias)
+export const SEMENTE_ALIMENTACAO: string[] = [
+  "Proteina e fibra nas refeicoes",
+  "Beber agua ao longo do dia",
+  "Comer devagar e sentada",
+  "Doce so com prazer e presenca, sem automatico",
+  "Dormir bem (o sono controla a fissura)",
+];
