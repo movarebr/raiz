@@ -9,6 +9,7 @@ import MetasPage from "./pages/MetasPage";
 import CorpoPage from "./pages/CorpoPage";
 import MenteEspiritoPage from "./pages/MenteEspiritoPage";
 import PrazeresPage from "./pages/PrazeresPage";
+import EurotripPage from "./pages/EurotripPage";
 
 function Protegido() {
   const { session, carregando } = useAuth();
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="casa" element={<CasaPage />} />
             <Route path="financas-metas" element={<MetasPage />} />
             <Route path="prazeres" element={<PrazeresPage />} />
+            <Route path="eurotrip" element={<EurotripPage />} />
             {/* salas ainda vazias, esperando a gente montar */}
             <Route path=":slug" element={<PilarPage />} />
           </Route>

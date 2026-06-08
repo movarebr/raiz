@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Plane } from "lucide-react";
 import { PILARES } from "../pillars";
 import { supabase } from "../lib/supabase";
 import { useAuth } from "../lib/auth";
@@ -29,6 +29,7 @@ export default function Dashboard() {
   const [humor, setHumor] = useState<number | null>(null);
   const [nota, setNota] = useState("");
   const [salvo, setSalvo] = useState(false);
+  const [eurotripData, setEurotripData] = useState<string | null>(null);
 
   // carrega o check-in de hoje, se ja existir
   useEffect(() => {
@@ -45,6 +46,12 @@ export default function Dashboard() {
           setSalvo(true);
         }
       });
+    supabase
+      .from("config_usuario")
+      .select("valor")
+      .eq("chave", "eurotrip_data")
+      .maybeSingle()
+      .then(({ data }) => setEurotripData(data?.valor ?? null));
   }, [session]);
 
   async function salvarCheckin(novoHumor: number) {
@@ -106,6 +113,31 @@ export default function Dashboard() {
           </p>
         )}
       </section>
+
+      {/* Sonho em foco: Eurotrip */}
+      <Link
+        to="/eurotrip"
+        className="group relative flex items-center gap-4 overflow-hidden rounded-suave bg-gradient-to-br from-salvia/20 to-terracota/10 p-5 shadow-suave ring-1 ring-salvia/25 transition hover:-translate-y-0.5"
+      >
+        <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-suave bg-white/60 text-salvia-escuro">
+          <Plane size={24} strokeWidth={1.8} />
+        </span>
+        <div className="flex-1">
+          <h3 className="font-display text-xl text-musgo">Eurotrip</h3>
+          <p className="text-sm text-carvao/60">
+            {(() => {
+              if (!eurotripData) return "Seu sonho em foco. Bora planejar?";
+              const dias = Math.ceil(
+                (new Date(eurotripData + "T00:00:00").getTime() - new Date(hojeISO() + "T00:00:00").getTime()) / 86400000
+              );
+              if (dias > 0) return `Faltam ${dias} dias pra esse sonho.`;
+              if (dias === 0) return "E hoje! Boa viagem.";
+              return "Que viagem linda foi essa.";
+            })()}
+          </p>
+        </div>
+        <ArrowUpRight size={18} className="text-bruma transition group-hover:text-terracota" />
+      </Link>
 
       {/* Os pilares */}
       <section>

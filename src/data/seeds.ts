@@ -94,3 +94,27 @@ export const SEMENTE_ALIMENTACAO: string[] = [
   "Doce so com prazer e presenca, sem automatico",
   "Dormir bem (o sono controla a fissura)",
 ];
+
+// EUROTRIP: a Rota do Expresso (paradas pre-carregadas)
+export type SementeParada = { pais: string; cidade: string; dias: number; deslocamento: string };
+export const SEMENTE_EUROTRIP_PARADAS: SementeParada[] = [
+  { pais: "Espanha", cidade: "Madri", dias: 5, deslocamento: "Chegada do Brasil. Adaptar ao fuso, comecar leve." },
+  { pais: "Franca", cidade: "Paris", dias: 5, deslocamento: "Trem noturno ou voo rapido de Madri." },
+  { pais: "Austria", cidade: "Viena", dias: 6, deslocamento: "Voo low cost de Paris." },
+  { pais: "Eslovenia", cidade: "Liubliana", dias: 4, deslocamento: "Trem de Viena (cerca de 6h, rota cenica de Semmering)." },
+  { pais: "Italia", cidade: "Toscana e Roma", dias: 10, deslocamento: "Via Veneza ou Trieste, depois trem ate a Toscana. Fim em Roma pro voo de volta." },
+];
+
+// EUROTRIP: checklist de preparacao
+export const SEMENTE_EUROTRIP_CHECKLIST: string[] = [
+  "Passaporte valido (ao menos 6 meses alem da viagem)",
+  "ETIAS (obrigatorio pra brasileiros a partir do fim de 2026)",
+  "Seguro viagem com cobertura na Europa",
+  "eSIM ou chip internacional",
+  "Cartao internacional e algum euro em especie",
+  "Reservas de hospedagem das 5 paradas",
+  "Passagens aereas e trens reservados",
+  "Roupa de frio adequada (camadas, casaco bom)",
+  "Comprovantes impressos (reservas, seguro, passagens)",
+  "Adaptador de tomada europeu",
+];
